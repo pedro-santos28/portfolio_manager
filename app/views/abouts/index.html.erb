@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+<h1>Sobre</h1>
+<div id="abouts" class="">
+  <div>
+    <h2>Título</h2>
+    <p> <%= @about.title%> </p>
+  </div>
+  <div>
+    <h2>Conteúdo</h2>
+    <p> <%= @about.content %> </p>
+  </div>
+</div>
+<%= link_to "Editar", edit_about_path(@about), class: "btn btn-secondary" %>

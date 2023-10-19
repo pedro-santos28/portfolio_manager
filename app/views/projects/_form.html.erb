@@ -1,0 +1,27 @@
+<%= form_with model: @project, url: update_project_path(@project['id']), method: :patch do |form|%>
+  <div class="mb-3">
+    <%= form.label :name, "Projeto"%>
+    <%= form.text_field :name, :value => @project['name'], class: "form-control"%>
+  </div>
+  <div class="mb-3">
+    <%= form.label :image_url, "Imagem do projeto"%>
+    <%= form.text_field :image_url, :value => @project['image_url'], class: "form-control"%>
+  </div>
+  <div class="mb-3">
+    <%= form.label :description, "Descrição"%>
+    <%= form.text_area :description, :value => @project['description'], class: "form-control"%>
+  </div>
+  <div class="mb-3">
+    <%= form.label :repository_url, "Repositório"%>
+    <%= form.text_field :repository_url, :value => @project['repository_url'], class: "form-control"%>
+  </div>
+  <div class="mb-3">
+    <%= form.label :hosting_url, "Hospedagem"%>
+    <%= form.text_field :hosting_url, :value => @project['hosting_url'], class: "form-control"%>
+  </div>
+  <br>
+  <div>
+    <%= link_to "Voltar", projects_path, class: "btn btn-secondary" %>
+    <%= form.submit "Editar", class: "btn btn-warning" %>
+  </div>
+<%end %>

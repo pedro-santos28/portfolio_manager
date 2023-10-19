@@ -1,0 +1,25 @@
+<%= form_with url: about_path(@about), method: :patch do |form| %>
+  <% if about.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(about.errors.count, "error") %> prohibited this about from being saved:</h2>
+      <ul>
+        <% about.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="d-flex flex-column gap-4 p-4 ">
+    <div>
+      <%= form.label :title, "Titulo", class: "form-label" %>
+      <%= form.text_field :title, value: @about.title, class: "form-control"%>
+    </div>
+    <div>
+      <%= form.label :content, "Conteúdo", class: "form-label" %>
+      <%= form.text_area :content, value: @about.content, class: "form-control" %>
+    </div>
+    <div>
+      <%= form.submit "Salvar", class: "btn btn-primary"%>
+    </div>
+  </div>
+<% end %>
