@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_13_003031) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_20_160155) do
   create_table "abouts", force: :cascade do |t|
     t.string "title"
     t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "image"
+    t.text "hover_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,6 +34,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_003031) do
     t.text "description"
     t.string "image_url"
     t.boolean "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "traits", force: :cascade do |t|
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,13 +1,14 @@
-<p style="color: green"><%= notice %></p>
-<h1>Sobre</h1>
-<div id="abouts" class="">
-  <div>
-    <h2>Título</h2>
-    <p> <%= @about.title%> </p>
+<div class="d-flex flex-column gap-4">
+  <h1 class="text-primary">Sobre</h1>
+  <div id="abouts" class="fs-4">
+    <div>
+      <h2>Título</h2>
+      <p> <%= @about.title%> </p>
+    </div>
+    <div>
+      <h2>Conteúdo</h2>
+      <p> <%= @about.content %> </p>
+    </div>
   </div>
-  <div>
-    <h2>Conteúdo</h2>
-    <p> <%= @about.content %> </p>
-  </div>
+  <%= link_to "Editar", edit_about_path(@about), class: "btn btn-secondary" %>
 </div>
-<%= link_to "Editar", edit_about_path(@about), class: "btn btn-secondary" %>
