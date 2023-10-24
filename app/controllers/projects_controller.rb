@@ -42,6 +42,6 @@ class ProjectsController < ApplicationController
   def set_projects
     response = Faraday.get('https://portfolio-next-cyan-five.vercel.app/api/projects')
     response_json = JSON.parse(response.body)
-    @projects = response_json
+    @projects = response_json.select {|project| project['enabled'] == true}
   end
 end
