@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   def show
     @projects.each do |project|
       if project["id"].to_i == params[:id].to_i
-        @project = Project.new(project)
+        @project = project
       end
     end
   end
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   def edit
     @projects.each do |project|
       if project["id"].to_i == params[:id].to_i
-        @project = Project.new(project)
+        @project = project
       end
     end
   end
@@ -42,6 +42,8 @@ class ProjectsController < ApplicationController
   def set_projects
     response = Faraday.get('https://portfolio-next-cyan-five.vercel.app/api/projects')
     response_json = JSON.parse(response.body)
+
     @projects = response_json.select {|project| project['enabled'] == true}
+    puts "@projects: #{@projects}"
   end
 end

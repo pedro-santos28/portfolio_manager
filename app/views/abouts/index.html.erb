@@ -1,6 +1,6 @@
-<div class="d-flex flex-column gap-4">
+<div class="d-flex flex-column gap-4 mh-100 container-lg overflow-y-auto">
   <h1 class="text-primary">Sobre</h1>
-  <div id="abouts" class="fs-4">
+  <div id="abouts" class="fs-6 md-fs-1">
     <div>
       <h2>Título</h2>
       <p> <%= @about.title%> </p>
@@ -11,6 +11,6 @@
     </div>
   </div>
   <div>
-    <%= link_to "Editar", edit_about_path(@about), class: "btn btn-secondary" %>
+    <%= link_to "Editar", edit_about_path(@about), class: "btn btn-warning" %>
   </div>
 </div>

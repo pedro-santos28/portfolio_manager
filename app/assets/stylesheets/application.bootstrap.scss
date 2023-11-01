@@ -1,2 +1,34 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "max-height": map-merge(
+      map-get($utilities, "max-height"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "max-height"), "values"),
+          (90: 90%, 10: 10%),
+        ),
+      ),
+    ),
+  )
+);
+
+.mh-90 {
+  max-height: 90%;
+}
+.mh-10 {
+  max-height: 10%;
+}
+
+
+@import "bootstrap/scss/utilities/api";
+
+
+

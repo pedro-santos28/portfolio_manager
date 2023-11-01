@@ -1,27 +1,40 @@
-<%= form_with model: @project, url: update_project_path(@project['id']), method: :patch do |form|%>
+<%= form_tag update_project_path(project['id']), method: :patch do %>
   <div class="mb-3">
-    <%= form.label :name, "Projeto"%>
-    <%= form.text_field :name, :value => @project['name'], class: "form-control"%>
+    <%= label_tag :name, "Projeto"%>
+    <%= text_field_tag :name, project['name'], class: "form-control"%>
   </div>
   <div class="mb-3">
-    <%= form.label :image_url, "Imagem do projeto"%>
-    <%= form.text_field :image_url, :value => @project['image_url'], class: "form-control"%>
+    <%= label_tag :image_url, "Imagem do projeto"%>
+    <%= text_field_tag :image_url, project['image_url'], class: "form-control"%>
   </div>
   <div class="mb-3">
-    <%= form.label :description, "Descrição"%>
-    <%= form.text_area :description, :value => @project['description'], class: "form-control"%>
+    <%= label_tag :description, "Descrição"%>
+    <%= text_area_tag :description, project['description'], class: "form-control"%>
   </div>
   <div class="mb-3">
-    <%= form.label :repository_url, "Repositório"%>
-    <%= form.text_field :repository_url, :value => @project['repository_url'], class: "form-control"%>
+    <%= label_tag :repository_url, "Repositório"%>
+    <%= text_field_tag :repository_url, project['repository_url'], class: "form-control"%>
   </div>
   <div class="mb-3">
-    <%= form.label :hosting_url, "Hospedagem"%>
-    <%= form.text_field :hosting_url, :value => @project['hosting_url'], class: "form-control"%>
+    <%= label_tag :hosting_url, "Hospedagem"%>
+    <%= text_field_tag :hosting_url, project['hosting_url'], class: "form-control"%>
   </div>
+  <ul class="mb-3 list-unstyled ">
+    <%= label_tag :techs, "Tecnologias" %>
+    <% project['techs'].each do |tech| %>
+      <li>
+        <div class="form-group ">
+          <div class="form-group">
+            <%= text_field_tag "project[techs][][id]", tech['id'], class: "form-control d-none" %>
+            <%= text_field_tag "project[techs][][description]", tech['name'], class: "form-control mb-2" %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
   <br>
   <div>
     <%= link_to "Voltar", show_project_path(project['id']), class: "btn btn-secondary" %>
-    <%= form.submit "Salvar", class: "btn btn-success" %>
+    <%= submit_tag "Salvar", class: "btn btn-success" %>
   </div>
 <%end %>

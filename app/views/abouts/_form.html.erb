@@ -19,6 +19,7 @@
       <%= form.text_area :content, value: @about.content, class: "form-control" %>
     </div>
     <div>
+      <%= link_to "Voltar", abouts_path, class: "btn btn-secondary" %>
       <%= form.submit "Salvar", class: "btn btn-primary"%>
     </div>
   </div>

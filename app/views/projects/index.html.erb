@@ -1,8 +1,8 @@
-<div class="d-flex flex-column gap-4">
+<div class="container d-flex flex-column gap-4 overflow-y-auto">
   <h1 class="text-primary">Projetos</h1>
-  <div class="row row-cols-1 row-cols-sm-3 g-4 align-items-stretch">
+  <div class="row">
     <% @projects.each do |project| %>
-      <div class="col">
+      <div class="col col-md-6 col-lg-4">
         <div class="card d-flex align-items-center p-2">
           <%= 
           image_tag(project['image_url'], size:"250x200", class: "rounded") 
